@@ -7,25 +7,28 @@
 </head>
 <body>
 	<h1>로그인 페이지</h1>
-	<form action="main.do" method="post">
+	<form action="main.do" method="get">
 		<fieldset class="LoginField">
-			<legend>로그인</legend>
+			<legend>Login</legend>
 			<div>
 				<table class="LoginTable">
 					<tr>
 						<th>ID</th>
-						<td><input type="text" name="user_id" placeholder="ID를 입력해주세요"></td>
+						<td><input type="text" id="user_id" name="user_id" placeholder="ID를 입력해주세요"></td>
 					</tr>
 					<tr>
-						<th>비밀번호</th>
-						<td><input type="password" name="pwd" placeholder="비밀번호를 입력해주세요"></td>
+						<th>PW</th>
+						<td><input type="password" id="user_pw" name="user_pw" placeholder="비밀번호를 입력해주세요"></td>
 					</tr>
 				</table>
-			</div>
+			</div>	
+				
+				
+				<br>
 			<div>
-				<button type="submit">로그인</button>
-				<button type="reset">초기화</button>
-				<a href="#">회원가입</a>)
+				<button type="button">button</button>
+				<button type="submit">submit</button>
+				<button type="reset">reset</button>
 			</div>
 		</fieldset>
 	</form>
