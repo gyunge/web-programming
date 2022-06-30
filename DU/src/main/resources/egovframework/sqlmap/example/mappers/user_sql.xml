@@ -13,7 +13,7 @@
 		<id	column="email" property="email"/>
 	</resultMap>
 	
-	<select id="selectUserInfo" parameterType="string" resultMap="UserMap">
+	<select id="selectUserInfo" parameterType="string" resultMap="userMap">
 		<![CDATA[
 			SELECT
 				*

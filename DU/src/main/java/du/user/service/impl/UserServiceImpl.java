@@ -14,14 +14,14 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 
 	@Override
-	public boolean isLogin(String userId, String userPwd) throws Exception {
-		if(!StringUtils.hasText(userId) || !StringUtils.hasText(userPwd)) {
+	public boolean isLogin(String userId, String userPw) throws Exception {
+		if(!StringUtils.hasText(userId) || !StringUtils.hasText(userPw)) {
 			throw new RuntimeException();
 		}
 		
 		String pwd = userDAO.selectPwd(userId);
 		
-		if(userPwd.equals(pwd)) {
+		if(userPw.equals(pwd)) {
 			return true;
 		}
 		
