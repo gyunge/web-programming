@@ -1,5 +1,8 @@
 package du.user.dao;
 
-public interface UserDAO {
+import du.user.domain.UserVO;
 
+public interface UserDAO {
+	
+	public UserVO selectUserInfo(String userId);
 }
