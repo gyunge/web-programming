@@ -4,13 +4,13 @@
 	
 	<resultMap id ="userMap" type="UserVO">
 		<id	column="user_id" property="userId"/>
-		<id	column="pwd" property="pwd"/>
-		<id	column="name" property="name"/>
-		<id	column="dept_cd" property="deptCd"/>
-		<id	column="dept_nm" property="deptNm"/>
-		<id	column="job" property="job"/>
-		<id	column="phone" property="phone"/>
-		<id	column="email" property="email"/>
+		<result	column="pwd" property="pwd"/>
+		<result	column="name" property="name"/>
+		<result	column="dept_cd" property="deptCd"/>
+		<result	column="dept_nm" property="deptNm"/>
+		<result	column="job" property="job"/>
+		<result	column="phone" property="phone"/>
+		<result	column="email" property="email"/>
 	</resultMap>
 	
 	<select id="selectUserInfo" parameterType="string" resultMap="userMap">

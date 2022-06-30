@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		"file:src/main/resources/egovframework/spring/context-transaction.xml",
 		"file:src/main/resources/egovframework/spring/context-datasource.xml",
 		"file:src/main/resources/egovframework/spring/context-mapper.xml",
-		"file:src/main/webapp/WEB-IMF/config/egovframework/springmvc/dispatcher-servlet.xml",
+		"file:src/main/webapp/WEB-INF/config/egovframework/springmvc/dispatcher-servlet.xml"
 })
 public class TestConfig {
 

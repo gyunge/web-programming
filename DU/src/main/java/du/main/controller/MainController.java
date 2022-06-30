@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
+
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,9 @@ public class MainController {
 			@RequestParam("user_pw") String userPw,
 			HttpServletResponse response
 			) throws Exception {
+		
 			response.setCharacterEncoding("euc-kr");
 		boolean isLogin = userService.isLogin(userId, userPw);
-		
 		if(isLogin) {
 			return "main.html";
 		} else {
