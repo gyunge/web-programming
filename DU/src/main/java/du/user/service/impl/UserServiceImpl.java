@@ -7,21 +7,21 @@ import org.springframework.util.StringUtils;
 import du.user.dao.UserDAO;
 import du.user.service.UserService;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDAO userDAO;
 
 	@Override
-	public boolean isLogin(String userId, String userPw) throws Exception {
-		if(!StringUtils.hasText(userId) || !StringUtils.hasText(userPw)) {
+	public boolean isLogin(String userId, String userPwd) throws Exception {
+		if(!StringUtils.hasText(userId) || !StringUtils.hasText(userPwd)) {
 			throw new RuntimeException();
 		}
 		
 		String pwd = userDAO.selectPwd(userId);
 		
-		if(userPw.equals(pwd)) {
+		if(userPwd.equals(pwd)) {
 			return true;
 		}
 		

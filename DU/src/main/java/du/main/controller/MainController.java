@@ -2,10 +2,12 @@ package du.main.controller;
 
 
 
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import du.user.service.UserService;
 
@@ -24,6 +27,7 @@ public class MainController {
 	@Autowired
 	private UserService userService;
 	
+	/*
 	@RequestMapping(value="/main.do", method = RequestMethod.GET)
 	public String mainPageByGet(HttpServletRequest request) {
 		
@@ -31,17 +35,32 @@ public class MainController {
 		
 		return "main.html";
 	}
-
+	*/
 
 	@RequestMapping(value="/main.do", method = RequestMethod.POST)
-	public String mainPageByPOST(HttpServletRequest request) {
-		Map<String, String[]> paramMap = request.getParameterMap();
-		for(String name: paramMap.keySet()) {
-			logger.info("{} : {}", name, Arrays.toString(paramMap.get(name)));
-		}
+	public String mainPageByPOST(
+			@RequestParam("user_id") String userId,
+			@RequestParam("user_pw") String userPwd,
+			HttpServletResponse response
+			) throws Exception {
+				response.setCharacterEncoding("euc-kr");
 		
-	logger.info(request.getQueryString());
-	
-	return "main.html";
+		boolean isLogin = userService.isLogin(userId, userPwd);
+		if(isLogin) {
+			return "main.html";
+		} else {
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('아이디 또는 비밀번호가 틀렸습니다.');");
+			out.println("location.href='loginPage.do';");
+			out.println("</script>");
+			
+			return null;
 		}
 	}
+	
+	@RequestMapping(value = "/loginPage.do", method = RequestMethod.GET)
+	public String loginPage() {
+		return "login.jsp";
+	}
+}
