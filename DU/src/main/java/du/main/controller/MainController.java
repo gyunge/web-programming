@@ -1,18 +1,18 @@
 package du.main.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import java.io.PrintWriter;
+
 import java.util.Arrays;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import du.user.service.UserService;
 
@@ -24,32 +24,24 @@ public class MainController {
 	@Autowired
 	private UserService userService;
 	
-	
+	@RequestMapping(value="/main.do", method = RequestMethod.GET)
+	public String mainPageByGet(HttpServletRequest request) {
+		
+		logger.info(request.getQueryString());
+		
+		return "main.html";
+	}
+
+
 	@RequestMapping(value="/main.do", method = RequestMethod.POST)
-	public String mainPageByPOST(
-			@RequestParam("user_id") String userId,
-			@RequestParam("user_pw") String userPw,
-			HttpServletResponse response
-			) throws Exception {
+	public String mainPageByPOST(HttpServletRequest request) {
+		Map<String, String[]> paramMap = request.getParameterMap();
+		for(String name: paramMap.keySet()) {
+			logger.info("{} : {}", name, Arrays.toString(paramMap.get(name)));
+		}
 		
-			response.setCharacterEncoding("euc-kr");
-		boolean isLogin = userService.isLogin(userId, userPw);
-		if(isLogin) {
-			return "main.html";
-		} else {
-			PrintWriter out = response.getWriter();
-			out.println("<script");
-			out.println("alert('아이디 혹은 비밀번호가 잘못되었습니다.');");
-			out.println("location.href='loginPage.do';");
-			out.println("<script");
-				
-		return null;
-	}
-}
+	logger.info(request.getQueryString());
 	
-	@RequestMapping(value = "/loginPage.do", method = RequestMethod.GET)
-	public String loginPage() {
-		
-		return "login.html";
+	return "main.html";
+		}
 	}
-}
