@@ -1,9 +1,0 @@
-@charset "UTF-8";
-
-.LoginField {
-	width: 800px;
-}
-.LoginTable, tr, th, td {
-	border: 1px solib black;
-	border-collapse: collapse;
-}
