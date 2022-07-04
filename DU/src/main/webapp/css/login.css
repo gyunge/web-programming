@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.loginField {
+	width: 1000px;
+}
+.loginTable, tr, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
