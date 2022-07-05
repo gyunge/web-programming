@@ -3,6 +3,7 @@
 
 <configuration>
     <typeAliases>
-		<typeAlias alias="UserVO" type="du.user.domain.UserVO"/>
+		<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+		<typeAlias alias="userMap" type="du.user.domain.UserVO"/>
     </typeAliases>
 </configuration>
