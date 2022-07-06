@@ -27,7 +27,7 @@
 	<select id="selectUserInfo" parameterType="String" resultMap="UserVO">
 		<![CDATA[ 
 			SELECT 
-				A.user_id, A.name, B.dept_nm 
+				A.user_id, A.name, B.dept_nm, A.job, A.phone, ,A.dept_cd, A.email
 			FROM 
 				TB_USER A INNER JOIN TB_DEPT_CD B ON A.dept_cd = B.dept_cd
 			WHERE
@@ -43,4 +43,27 @@
 				(#{userId}, #{pwd}, #{name}, #{deptCd}, #{job}, #{phone}, #{email})
 		]]>
 	</insert>
+	
+	<update id="updateUser" parameterType="UserMap">
+		<![CDATA[
+			UPDATE tb_user
+			SET
+				pwd = #{pwd},
+				name = #{name},
+				dept_cd = #{deptCd},
+				job = #{job},
+				phone = #{phone},
+				email = #{email}
+			WHERE
+				user_id = #{userId}			
+		]]>
+	</update>
+	
+	<delete id = "deleteUser" parameterType="String">
+		<![CDATA[
+			DELETE FROM tb_user
+			WHERE
+				use_id = #{userId}
+		]]>
+	</delete>
 </mapper>

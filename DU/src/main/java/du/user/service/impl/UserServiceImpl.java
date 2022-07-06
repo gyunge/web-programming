@@ -52,4 +52,25 @@ public class UserServiceImpl implements UserService {
 			httpSession.setAttribute("USER", userInfo);
 		}
 	}
+	@Override
+	public void insertUser(UserVO user) {
+		userDAO.insertUser(user);
+	}
+
+	@Override
+	public void updateUser(UserVO user) {
+		if (user.getPwd().isEmpty()) {
+			user.setPwd(userDAO.selectPwd(user.getUserId()));
+		}
+		userDAO.updateUser(user);
+		
+	}
+
+	@Override
+	public void deleteUser(HttpSession session) {
+		UserVO user = (UserVO) session.getAttribute("USER");
+		
+		userDAO.deleteUser(user.getUserId());
+		
+	}
 }
