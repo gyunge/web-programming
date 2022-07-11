@@ -27,7 +27,7 @@
 	<select id="selectUserInfo" parameterType="String" resultMap="UserVO">
 		<![CDATA[ 
 			SELECT 
-				A.user_id, A.name, B.dept_nm, A.job, A.phone, ,A.dept_cd, A.email
+				A.user_id, A.name, B.dept_nm, A.job, A.phone, A.dept_cd, A.email
 			FROM 
 				TB_USER A INNER JOIN TB_DEPT_CD B ON A.dept_cd = B.dept_cd
 			WHERE
@@ -61,9 +61,10 @@
 	
 	<delete id = "deleteUser" parameterType="String">
 		<![CDATA[
-			DELETE FROM tb_user
+			DELETE FROM 
+				tb_user
 			WHERE
-				use_id = #{userId}
+				user_id = #{userId}
 		]]>
 	</delete>
 </mapper>

@@ -33,6 +33,7 @@
 					<option value="01">개발부</option>
 					<option value="02">영업부</option>
 					<option value="03">총무부</option>
+					<option value="04">오리부</option>
 				</select>
 			</td>
 		</tr>

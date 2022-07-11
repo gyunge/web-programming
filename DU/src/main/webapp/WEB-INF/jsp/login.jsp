@@ -34,8 +34,8 @@
 			<br>
 			<div>
 				<button type="button" id = "btn" onclick="window.location.href='signUpPage.do'">회원가입</button>
-				<button type="submit">submit</button>
-				<button type="reset">reset</button>
+				<button type="submit">확인</button>
+				<button type="reset">초기화</button>
 			</div>
 		</fieldset>
 	</form>
