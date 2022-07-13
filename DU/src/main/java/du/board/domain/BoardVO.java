@@ -13,7 +13,7 @@ public class BoardVO {
 	private String writerId;
 	
 	private String writerName;
-	
+
 	public long getIdx() {
 		return idx;
 	}
@@ -46,11 +46,11 @@ public class BoardVO {
 		this.writerId = writerId;
 	}
 
-	public String getWriteName() {
+	public String getWriterName() {
 		return writerName;
 	}
 
-	public void setWriteName(String writerName) {
+	public void setWriterName(String writerName) {
 		this.writerName = writerName;
 	}
 

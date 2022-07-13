@@ -8,9 +8,6 @@
 
 <html>
 <head>
-	<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script type="text/javascript" src="js/bootstrap/bootstrap.bundle.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Main Page</title>
 </head>
@@ -18,5 +15,7 @@
 	<header>
 		<jsp:include page="/WEB-INF/jsp/layout/header.jsp"></jsp:include>
 	</header>
+	
+	<img src="images/ohri2.png" style="width: 105px; height: 150px;" onclick= "window.location.href='boardListPage.do'"/>
 </body>
 </html>
