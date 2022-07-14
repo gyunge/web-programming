@@ -19,8 +19,8 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-			<th>부서코드</th>
-			<th>부서명</th>
+			<th>오리코드</th>
+			<th>오리명</th>
 			<th>추가기능</th>
 		</tr>
 	</thead>

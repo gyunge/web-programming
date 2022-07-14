@@ -29,7 +29,7 @@
 			<td><input type="password" id="pwdCheckInput" required></td>
 		</tr>
 		<tr>
-			<th>부서</th>
+			<th>오리</th>
 			<td>
 				<select name="deptCd" required>
 					<c:forEach items="${dept}" var="item">

@@ -11,7 +11,20 @@
 	<header>
 		<jsp:include page="/WEB-INF/jsp/layout/header.jsp"></jsp:include>
 	</header>
-	<table class="table table-stiped">
+	
+	<div id = "filterDiv">
+		<table>
+			<tr>
+				<th>제목</th>
+				<td><input type="text" id="searchTitle"
+						value="<c:out value='${title}'></c:out>"/></td>
+				<td><button type="button" id="searchBtn" class="btn btn-warning">검색</button></td>
+			</tr>
+		</table>
+				<button type="button"class="btn btn-warning"
+					onclick="window.location.href='boardWritePage.do'">작성</button>
+	</div>
+	<table id="dataList" class="table table-stiped table-hover">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -21,9 +34,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${boardList}" var="item">
-				<tr>
-					<td><c:out value="${item.idx}"/></td>
+			<c:forEach items="${boardList}" var="item" varStatus="status">
+				<tr ondblclick="trDblClick('${item.idx}');">
+					<td><c:out value="${status.count + pagination.startList}"/></td>
 					<td><c:out value="${item.title}"/></td>
 					<td><c:out value="${item.writerName}"/></td>
 					<td><c:out value="${item.registDate}"/></td>
@@ -52,6 +65,36 @@
 
 <script>
 	
+	window.onload = function() {
+		var searchTitle = document.getElementById("searchTitle");
+		var searchBtn = document.getElementById("searchBtn");
+		
+		searchTitle.addEventListener("keydown", function(event){
+			if(event.keyCode == 13){
+				searchBtn.click();
+			}
+		})
+		
+		//순차적으로 dataList -> tbody -> tr
+		searchBtn.onclick = function() {
+// 			var tr = document.querySelectorAll("#dataList tbody tr");
+
+// 			for(var item of tr){
+// 				var title = item.getElementsByTagName('td')[1].innerHTML;
+				
+// 				if(title.includes(searchTitle.value)){
+// 					item.style.display = "";
+// 				} else {
+// 					item.style.display = "none";
+// 				}
+// 			}
+		var url = "boardListPage.do";
+		url = url + "?title=" + searchTitle.value;
+				
+		location.href = url;
+
+		}
+	}
 	//이전 버튼 이벤트
 	function fn_prev(page, range, rangeSize) {
 		var page = ((range - 2) * rangeSize) + 1;
@@ -60,6 +103,7 @@
 		var url = "boardListPage.do";
 		url = url + "?page=" + page;
 		url = url + "&range=" + range;
+		url = url + "&title=" + searchTitle.value;
 		
 		location.href = url;	
 	}
@@ -69,6 +113,7 @@
 		var url = "boardListPage.do";
 		url = url + "?page=" + page;
 		url = url + "&range=" + range;
+		url = url + "&title=" + searchTitle.value;
 		
 		location.href = url;
 	}
@@ -81,8 +126,15 @@
 		var url = "boardListPage.do";
 		url = url + "?page=" + page;
 		url = url + "&range=" + range;
+		url = url + "&title=" + searchTitle.value;
 		
 		location.href = url;	
+	}
+	
+	function trDblClick(idx) {
+		var url ="boardInfoPage/"+idx+".do"
+		
+		location.href = url;
 	}
 </script>
 </html>

@@ -13,10 +13,11 @@
 <body>
 
 <div class ="LogoDiv">
-			<img alt="오리" src="images/ohri.png">
+			<img alt="오리" src="images/ohri.png"
+				onclick="window.location.href='mainPage.do'">
 		</div>
 		<ul class ="infoUl">
-			<li><a href="deptPage.do">부서정보</a></li>
+			<li><a href="deptPage.do">오리정보</a></li>
 		</ul>
 		<div class="userInfoDiv">
 			[<c:out value="${USER.name}"/>]
