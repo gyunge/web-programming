@@ -11,7 +11,7 @@
 		<jsp:include page="/WEB-INF/jsp/layout/header.jsp"></jsp:include>
 	</header>
 	<form action="boardWrite.do" method="post">
-		<table>
+		<table class = "table table-warning">
 			<tr>
 				<th>제목</th>
 				<td><input type="text" name="title" required/></td>

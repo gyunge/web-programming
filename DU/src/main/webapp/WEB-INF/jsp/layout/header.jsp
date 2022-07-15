@@ -4,20 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
-<link rel="stylesheet" href="css/main.css">
-<script type="text/javascript" src="js/bootstrap/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap/bootstrap.bundle.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 <div class ="LogoDiv">
-			<img alt="오리" src="images/ohri.png"
-				onclick="window.location.href='mainPage.do'">
+			<img alt="오리" src="${pageContext.request.contextPath}/images/ohri.png"
+				onclick="window.location.href='${pageContext.request.contextPath}/mainPage.do'">
 		</div>
 		<ul class ="infoUl">
-			<li><a href="deptPage.do">오리정보</a></li>
+			<li><a href="${pageContext.request.contextPath}/deptPage.do">오리정보</a></li>
 		</ul>
 		<div class="userInfoDiv">
 			[<c:out value="${USER.name}"/>]
